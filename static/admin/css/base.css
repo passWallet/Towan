@@ -1,0 +1,16 @@
+/*
+ * Override of django material css file
+ *
+ */
+
+ .green-text.text-lighten-2 {
+    color: #4153B0 !important;
+}
+
+nav {
+    background-color: #4153B0;
+}
+
+.green.darken-2 {
+    background-color: #4153B0 !important;
+}
