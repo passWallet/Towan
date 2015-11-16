@@ -9,9 +9,9 @@ Little raspberry pi project that allow a user to transform a complicate bitcoin 
 
 TOWAN offer a endpoint that send a new bitcoin address everytime it is called (HD). It also offer a little interface for the owner.
 
- ## Notes ##
+## Notes ##
 
- ### Generate Public Testnet Master Key ###
+### Generate Public Testnet Master Key ###
 
 see bitmerchant lib.
 
