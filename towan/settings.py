@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     #  NOTE: 'material.admin' must be added before 'django.contrib.admin'
     'material.admin',
     'django.contrib.admin',
+    'tastycrust',
     # Self made
     'address',
 )

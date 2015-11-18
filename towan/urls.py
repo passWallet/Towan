@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from address.api import AddressResource
+
+address_resource = AddressResource()
 
 urlpatterns = [
     url(r'^$', include('address.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include(address_resource.urls)),
 ]

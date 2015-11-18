@@ -1,5 +1,4 @@
 # TOWAN Project (The One Without A Name) #
-=========================================
 
 ## Presentation ##
 
@@ -8,6 +7,15 @@ Little raspberry pi project that allow a user to transform a complicate bitcoin 
 ## Explication ##
 
 TOWAN offer a endpoint that send a new bitcoin address everytime it is called (HD). It also offer a little interface for the owner.
+
+## TODO ##
+
+* Create a proper module call `ìnterface` with the views for the GUI.
+* Slackbot ! [WIP]
+* Check if on the last 20 addresses there is a transaction.
+* Add accounts, authorization, ...
+* Docs
+* Tests
 
 ## Notes ##
 
