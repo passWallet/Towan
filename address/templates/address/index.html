@@ -1,46 +1,62 @@
-{% include 'material/includes/material_css.html' %}
-{% include 'material/includes/material_js.html' %}
+{% extends "base.html" %}
+{% load staticfiles %}
 
-<style type="text/css">
-    html, body {
-        background: #E5E5E5 none repeat scroll 0% 0%;
-        height: 100%;
-    }
-    .passwallet-color {
-      background-color: #4153B0;
-    }
-    nav {
-      height: 250px;
-      background-size: cover;
-    }
-    main .container {
-      position: relative;
-      top: -100px;
-    }
-</style>
-
-<header>
-  <nav class="passwallet-color">
-    <div class="nav-wrapper">
-      <!--<ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a target="_blank" href="https://github.com/viewflow/django-material"><i class="fa fa-github"></i></a></li>
-        <li><a target="_blank" href="https://twitter.com/viewflow"><i class="fa fa-twitter"></i></a></li>
-      </ul>-->
-    </div>
-  </nav>
-</header>
-
-<main>
-  <div class="container expand-on-small-only">
-    <div class="row">
-      <div class="col s12">
-        <div class="card">
-          <div class="card-content">
-            <h1>Lola's Bitcoin Testnet Address</h1>
-            <a href="bitcoin:{{ address }}?label=Lola">{{ address }}</a>
-          </div>
+{% block content %}
+<!-- Main -->
+  <section id="main">
+    <header>
+      <span class="avatar"><img src="{% static 'address/images/avatar.jpg' %}" alt="" /></span>
+      <h1>Sacha Evans</h1>
+      <p>Goat Sound Engineer</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ address }}" /></br>
+      <small><a style="text-transform:none;letter-spacing:0;" href="bitcoin:{{ address }}?label=SachaEvans">{{ address }}</a></small>
+    </header>
+    <!--
+    <hr />
+    <h2>Extra Stuff!</h2>
+    <form method="post" action="#">
+      <div class="field">
+        <input type="text" name="name" id="name" placeholder="Name" />
+      </div>
+      <div class="field">
+        <input type="email" name="email" id="email" placeholder="Email" />
+      </div>
+      <div class="field">
+        <div class="select-wrapper">
+          <select name="department" id="department">
+            <option value="">Department</option>
+            <option value="sales">Sales</option>
+            <option value="tech">Tech Support</option>
+            <option value="null">/dev/null</option>
+          </select>
         </div>
-      <div>
-    </div>
-  </div>
-</main>
+      </div>
+      <div class="field">
+        <textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+      </div>
+      <div class="field">
+        <input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
+      </div>
+      <div class="field">
+        <label>But are you a robot?</label>
+        <input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
+        <input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
+      </div>
+      <ul class="actions">
+        <li><a href="#" class="button">Get Started</a></li>
+      </ul>
+    </form>
+    <hr />
+
+    <footer>
+      <ul class="icons">
+        <li><a href="#" class="fa-twitter">Twitter</a></li>
+        <li><a href="#" class="fa-instagram">Instagram</a></li>
+        <li><a href="#" class="fa-facebook">Facebook</a></li>
+      </ul>
+    </footer>
+  -->
+  <hr />
+  <h3>Gimme teh monay !</h3>
+  </section>
+{% endblock %}

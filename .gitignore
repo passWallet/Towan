@@ -1,2 +1,5 @@
+api_key.txt
+.vagrant/
 *.pyc
+settings.py
 migrations/
