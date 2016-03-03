@@ -12,24 +12,26 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from getenv import env
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x$tgxa=@lwesj@_s=9zs*-o1rug_@%zn+&+rjykpyvii-7xwi1'
+SECRET_KEY = env('SECRET_KEY', 'a_secret_key')
 
 # Blocktrail API config
-MY_APIKEY = "cff0b789f150d00ae58b976dc186b83e2d77c0bb"
-MY_APISECRET = "b7f14f4bbc527b4fa1bbeecefd09d6353726afab"
-
+MY_APIKEY = env('MY_APIKEY')
+MY_APISECRET = env('MY_APISECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG= env('DEBUG')
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS', '')]
 
 
 # Application definition
@@ -42,7 +44,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Added tools
-    'django-dia',
     'easy_pjax',
     'material',
     'material.frontend',
@@ -94,10 +95,10 @@ WSGI_APPLICATION = 'towan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD':'deadbeef',
-        'HOST': 'localhost',
+        'NAME': env('DB_NAME','postgres'),
+        'USER': env('DB_USER','postgres'),
+        'PASSWORD': env('DB_PASSWORD','deadbeef'),
+        'HOST': env('DB_HOST','locahost'),
         'PORT': 5432,
 
     }
@@ -123,11 +124,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#)
 
 # tastypie
 TASTYPIE_DEFAULT_FORMATS = ['json']

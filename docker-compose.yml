@@ -1,0 +1,36 @@
+towan:
+  restart: always
+  build: .
+  expose:
+    - "8000"
+  links:
+    - postgres:postgres
+  volumes:
+    - /usr/src/app
+  env_file: .env
+  #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
+
+nginx:
+  restart: always
+  build: ./_nginx/
+  ports:
+    - "80:80"
+  volumes_from:
+    - towan
+  links:
+    - towan:towan
+
+postgres:
+  restart: always
+  image: postgres:latest
+  volumes_from:
+    - data
+  ports:
+    - "5432:5432"
+
+data:
+  restart: always
+  image: postgres:latest
+  volumes:
+    - /var/lib/postgresql
+  command: "true"

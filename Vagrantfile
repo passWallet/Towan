@@ -16,6 +16,10 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  #Load .env variable. Whoop ! Whoop !
+  #Need to install vagrant plugin
+  #config.env.enable
+
   config.vm.box = "phusion/ubuntu-14.04-amd64"
 
   # Forwarding django port
@@ -46,6 +50,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       image: "postgres",
       args: "-p 5432:5432 --volumes-from data -e POSTGRES_PASSWORD=deadbeef"
   end
+
+  # Adding global variable !!!!
+  config.vm.provision :shell, inline: "sudo cat .env >> /etc/environment"
 
   # Install Django and load all the requirements
   # TODO: Provision with ansible ?

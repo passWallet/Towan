@@ -1,11 +1,12 @@
 from django.conf import settings
+from getenv import env
 
 import blocktrail
 
 
 #Blocktrail API config
-NETWORK = "BTC"
-TESTNET = True
+NETWORK = env('NETWORK','BTC')
+TESTNET = env('TESTNET', True)
 
 #Blocktrail webhook
 IDENTIFIER = "towan"
