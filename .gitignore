@@ -1,6 +1,5 @@
 api_key.txt
 .vagrant/
 *.pyc
-migrations/
 .env
 production.env
