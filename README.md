@@ -2,17 +2,17 @@
 
 ### Presentation
 
-Little raspberry pi project that allow a user to transform a complicate bitcoin address in a readable human URL.
+Little raspberry pi project that allow a user to transform a complicate bitcoin address in a human readable URL.
 
 ### Explication
 
-TOWAN offer a endpoint that send a new bitcoin address everytime it is called (HD). It also offer a little interface for the owner.
+TOWAN offers an endpoint that sends a new bitcoin address everytime it is called (HD). It also offers a little interface for the owner.
 
 ### TODO ##
 
 * Create a proper module call `ìnterface` with the views for the GUI.
 * Slackbot !
-* ~~Check if on the last 20 addresses there is a transaction.~~ (Use Blocktrail will offer other solution later)
+* ~~Check if one of the last 20 addresses there is a transaction.~~ (Use Blocktrail will offer other solution later)
 * Add accounts, authorization, ...
 * Docs
 * Tests
@@ -22,7 +22,7 @@ TOWAN offer a endpoint that send a new bitcoin address everytime it is called (H
 
 #### Generate Public Testnet Master Key
 
-You can use [Copay](https://copay.io/). It allow Tesnet wallet and you can get the Public Master key.
+You can use [Copay](https://copay.io/). It allows Testnet wallet and you can get the Public Master key.
 
 Once you have it, you can change it in address/models.py (Need to create a script to ask it automatically the first time).
 
