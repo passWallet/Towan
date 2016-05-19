@@ -1,5 +1,9 @@
 # TOWAN Project (The One Without A Name)
 
+UPDATE: I am rewriting this project using Flask. The Django Admin doesn't fit my need for this project. You can check Towan2.
+
+Also there is a demo available [here](http://lola.ninja). You can donate to the project via this interface.
+
 ### Presentation
 
 Little raspberry pi project that allow a user to transform a complicate bitcoin address in a human readable URL.
