@@ -45,10 +45,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Added tools
     'easy_pjax',
-    'material',
-    'material.frontend',
-    #  NOTE: 'material.admin' must be added before 'django.contrib.admin'
-    'material.admin',
     'django.contrib.admin',
     'tastycrust',
     # Self made
@@ -64,7 +60,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'material.frontend.middleware.SmoothNavigationMiddleware',
 )
 
 ROOT_URLCONF = 'towan.urls'
@@ -80,7 +75,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'material.frontend.context_processors.modules',
             ],
         },
     },
@@ -98,7 +92,7 @@ DATABASES = {
         'NAME': env('DB_NAME','postgres'),
         'USER': env('DB_USER','postgres'),
         'PASSWORD': env('DB_PASSWORD','deadbeef'),
-        'HOST': env('DB_HOST','locahost'),
+        'HOST': env('DB_HOST','localhost'),
         'PORT': 5432,
 
     }
@@ -124,11 +118,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-#STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, 'static'),
-#)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # tastypie
 TASTYPIE_DEFAULT_FORMATS = ['json']

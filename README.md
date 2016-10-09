@@ -18,6 +18,15 @@ TOWAN offer a endpoint that send a new bitcoin address everytime it is called (H
 * Tests
 * Blockstore integration and onename assocation.
 
+### Contribute
+
+You will need Vagrant installed.
+
+Start Vagrant :
+```
+$ vagrant up
+```
+
 ### Notes ##
 
 #### Generate Public Testnet Master Key
