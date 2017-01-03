@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     # Added tools
     'easy_pjax',
     'django.contrib.admin',
+    'tastypie',
     'tastycrust',
     # Self made
     'address',

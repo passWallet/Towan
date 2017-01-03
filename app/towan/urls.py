@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from address.api import AddressResource
+from tastypie.api import Api
+from address.api import AddressResource, AdminAddressResource
 
-address_resource = AddressResource()
+v1_api = Api(api_name='v1')
+v1_api.register(AddressResource())
+
+admin_api = Api(api_name='admin')
+admin_api.register(AdminAddressResource())
+
 
 urlpatterns = [
     url(r'^$', include('address.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(address_resource.urls)),
+    url(r'^api/', include(v1_api.urls)),
+    url(r'^api/', include(admin_api.urls)),
 ]

@@ -1,5 +1,7 @@
 from tastypie.resources import ModelResource
+from tastypie.authentication import ApiKeyAuthentication
 from tastycrust.resources import ActionResourceMixin, action
+from tastypie.constants import ALL
 from .models import Address
 from random import randint
 import json
@@ -45,3 +47,15 @@ class AddressResource(ActionResourceMixin, ModelResource):
     def new_address(self, request, **kwargs):
         print request.body
         return self.create_response(request, request.body)
+
+# # # # # # # # # # # # # # # # # # #
+# Admin ressources for towan-client #
+# # # # # # # # # # # # # # # # # # #
+
+class AdminAddressResource(ActionResourceMixin, ModelResource):
+    class Meta:
+        queryset = Address.objects.all().order_by('-id')
+        resource_name = 'address'
+        list_allowed_methods = ['get']
+        authentication = ApiKeyAuthentication()
+        ordering = ALL
