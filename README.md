@@ -1,6 +1,7 @@
 # TOWAN Project (The One Without A Name)
 
-UPDATE: I am rewriting this project using Flask. The Django Admin doesn't fit my need for this project. You can check Towan2.
+UPDATE: I am keeping this project bt will remove the django admin extension and it will be replace by a towan-client desktop
+application.
 
 Also there is a demo available [here](http://lola.ninja). You can donate to the project via this interface.
 
