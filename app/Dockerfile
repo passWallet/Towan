@@ -12,12 +12,11 @@ RUN apt-get -y update
 # To teddy a bit the room
 RUN apt-get -y autoremove
 
-RUN useradd -u 1000 -g 100 -d /home/django django
+#RUN useradd -u 1000 -g 100 -d /home/django django
+#USER django
 
-USER django
-
-ADD ./_scripts/docker-entrypoint.sh /home/django/
+ADD ./docker-entrypoint.sh /usr/src/app/
 
 EXPOSE 8000
 
-ENTRYPOINT ["/bin/bash", "-e", "/home/django/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "-e", "/usr/src/app/docker-entrypoint.sh"]
