@@ -52,7 +52,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Adding global variable !!!!
-  config.vm.provision :shell, inline: "sudo cat .env >> /etc/environment"
+  # config.vm.provision :shell, inline: "sudo cat .env >> /etc/environment"
 
   # Install Django and load all the requirements
   # TODO: Provision with ansible ?

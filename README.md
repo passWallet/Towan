@@ -15,19 +15,30 @@ TOWAN offers an endpoint that sends a new bitcoin address everytime it is called
 
 ### TODO ##
 
-* Create a proper module call `ìnterface` with the views for the GUI.
 * Slackbot !
 * ~~Check if one of the last 20 addresses there is a transaction.~~ (Use Blocktrail will offer other solution later)
-* Add accounts, authorization, ...
+* Use SPV wallet instread of Blocktrail
 * Docs
 * Tests
-* Blockstore integration and onename assocation.
+
+### Contribute
+
+You will need Vagrant installed.
+
+Start Vagrant :
+```
+$ vagrant up
+```
 
 ### Notes ##
 
 #### Generate Public Testnet Master Key
 
+<<<<<<< HEAD
 You can use [Copay](https://copay.io/). It allows Testnet wallet and you can get the Public Master key.
+=======
+You can use [Copay](https://copay.io/). It allow Testnet wallet and you can get the Public Master key.
+>>>>>>> Admin
 
 Once you have it, you can change it in address/models.py (Need to create a script to ask it automatically the first time).
 

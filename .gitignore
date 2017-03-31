@@ -3,3 +3,4 @@ api_key.txt
 *.pyc
 .env
 production.env
+development.env
