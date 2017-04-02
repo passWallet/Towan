@@ -1,6 +1,6 @@
 # TOWAN Project (The One Without A Name)
 
-UPDATE: I am keeping this project bt will remove the django admin extension and it will be replace by a towan-client desktop
+UPDATE: I am keeping this project but will remove the django admin extension and it will be replace by a towan-client desktop
 application.
 
 Also there is a demo available [here](http://lola.ninja). You can donate to the project via this interface.
@@ -34,11 +34,7 @@ $ vagrant up
 
 #### Generate Public Testnet Master Key
 
-<<<<<<< HEAD
 You can use [Copay](https://copay.io/). It allows Testnet wallet and you can get the Public Master key.
-=======
-You can use [Copay](https://copay.io/). It allow Testnet wallet and you can get the Public Master key.
->>>>>>> Admin
 
 Once you have it, you can change it in address/models.py (Need to create a script to ask it automatically the first time).
 

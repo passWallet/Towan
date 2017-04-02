@@ -1,13 +1,12 @@
 towan:
   restart: always
-  build: ./app/
+  build: ./app
   expose:
     - "8000"
   links:
     - postgres:postgres
   volumes:
-    - ./app:/usr/src/app
-  env_file: development.env
+    - /usr/src/app
   #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
 
 nginx:

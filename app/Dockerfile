@@ -15,7 +15,9 @@ RUN apt-get -y autoremove
 #RUN useradd -u 1000 -g 100 -d /home/django django
 #USER django
 
-ADD ./docker-entrypoint.sh /usr/src/app/
+WORKDIR /usr/src/app/
+
+ADD docker-entrypoint.sh /usr/src/app/
 
 EXPOSE 8000
 

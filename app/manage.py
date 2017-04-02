@@ -6,7 +6,10 @@ import dotenv
 
 if __name__ == "__main__":
     #dotenv.read_dotenv()
-    dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), './../development.env'))
+    if os.getenv('PRODUCTION'):
+        dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), './production.env'))
+    else:
+        dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), './development.env'))
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "towan.settings")
 
