@@ -13,7 +13,7 @@ class AddressResource(ActionResourceMixin, ModelResource):
         resource_name = 'address'
         allowed_methods = []
 
-    @action(name="newaddress", allowed=('get',), static=True)
+    @action(name="new_address", allowed=('get',), static=True)
     def new_address(self, request, **kwargs):
         queryset = Address.objects.all().order_by('-id')[0:20]
         used_address_list = [item for item in queryset if item.used]
@@ -43,10 +43,10 @@ class AddressResource(ActionResourceMixin, ModelResource):
         return self.create_response(request, request.body)
 
 
-    @action(name="helloworld", allowed=('get','post'), static=True)
-    def new_address(self, request, **kwargs):
-        print request.body
-        return self.create_response(request, request.body)
+    #@action(name="helloworld", allowed=('get','post'), static=True)
+    #def new_address(self, request, **kwargs):
+    #    print request.body
+    #    return self.create_response(request, request.body)
 
 # # # # # # # # # # # # # # # # # # #
 # Admin ressources for towan-client #

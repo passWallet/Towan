@@ -18,10 +18,10 @@ MY_APISECRET = env('MY_APISECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG= env('DEBUG')
 
+ADMIN_ENABLED = env('DEBUG')
+
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS', '')]
-
-ADMIN_ENABLED = False
 
 # Application definition
 
@@ -108,11 +108,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-#STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, 'static'),
-#)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # tastypie
 TASTYPIE_DEFAULT_FORMATS = ['json']
