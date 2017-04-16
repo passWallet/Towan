@@ -7,6 +7,8 @@ towan:
     - postgres:postgres
   volumes:
     - /usr/src/app
+  environment:
+    - PRODUCTION=True
   #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
 
 nginx:
