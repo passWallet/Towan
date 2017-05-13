@@ -34,12 +34,13 @@
 
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="{% static 'address/assets/js/respond.min.js' %}"></script><![endif]-->
-			<script>
+			<script type="text/javascript">
 				if ('addEventListener' in window) {
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
 			</script>
+			{% block script %} {% endblock %}
 
-	</body>
+		</body>
 </html>

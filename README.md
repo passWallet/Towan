@@ -17,7 +17,7 @@ TOWAN offers an endpoint that sends a new bitcoin address everytime it is called
 
 * Slackbot !
 * ~~Check if one of the last 20 addresses there is a transaction.~~ (Use Blocktrail will offer other solution later)
-* Use SPV wallet instread of Blocktrail
+* Use SPV wallet instead of Blocktrail
 * Docs
 * Tests
 

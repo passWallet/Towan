@@ -32,11 +32,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
     # Added tools
     'easy_pjax',
-    'django.contrib.admin',
     'tastypie',
     'tastycrust',
+    'channels',
     # Self made
     'address',
 )
@@ -116,3 +117,11 @@ STATICFILES_DIRS = (
 
 # tastypie
 TASTYPIE_DEFAULT_FORMATS = ['json']
+
+# channels
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "towan.routing.channel_routing",
+    },
+}

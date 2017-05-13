@@ -7,6 +7,8 @@ from random import randint
 import json
 import blocktrailAPI
 
+from channels import Group
+
 class AddressResource(ActionResourceMixin, ModelResource):
     class Meta:
         queryset = Address.objects.all()
@@ -40,6 +42,7 @@ class AddressResource(ActionResourceMixin, ModelResource):
         queryset.used = True
         queryset.save()
         blocktrailAPI.unsubscribe_address_event(queryset.address)
+        Group(queryset.address).send({'text': 'payment_received'})
         return self.create_response(request, request.body)
 
 
