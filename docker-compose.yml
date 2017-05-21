@@ -1,37 +1,35 @@
-towan:
-  restart: always
-  build: ./app
-  expose:
-    - "8000"
-  links:
-    - postgres:postgres
-  volumes:
-    - /usr/src/app
-  environment:
-    - PRODUCTION=True
-  #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
+version: "2"
 
-nginx:
-  restart: always
-  build: ./_nginx/
-  ports:
-    - "80:80"
-  volumes_from:
-    - towan
-  links:
-    - towan:towan
+services:
+  postgres:
+    image: postgres
+  towan:
+    restart: always
+    build: ./app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - /usr/src/app
+    environment:
+      - PRODUCTION=True
+    labels:
+      - "traefik.enable=false"
+    #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
 
-postgres:
-  restart: always
-  image: postgres:latest
-  volumes_from:
-    - data
-  ports:
-    - "5432:5432"
-
-data:
-  restart: always
-  image: postgres:latest
-  volumes:
-    - /var/lib/postgresql
-  command: "true"
+  nginx:
+    restart: always
+    build: ./_nginx/
+    volumes_from:
+      - towan
+    depends_on:
+      - towan
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=nginx"
+      - "traefik.frontend.rule=Host:lola.ninja"
+      - "traefik.protocol=http"
+      - "traefik.frontend.entryPoints=http"
+      - "traefik.port=80"
+      - "traefik.docker.network=reverseproxy_default"

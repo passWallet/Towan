@@ -4,3 +4,4 @@ api_key.txt
 .env
 production.env
 development.env
+venv/
