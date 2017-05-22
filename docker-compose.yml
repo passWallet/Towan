@@ -3,9 +3,11 @@ version: "2"
 services:
   postgres:
     image: postgres
+
   towan:
     restart: always
     build: ./app
+    container_name: towan
     ports:
       - "8000:8000"
     depends_on:
@@ -20,16 +22,35 @@ services:
 
   nginx:
     restart: always
-    build: ./_nginx/
+    image: nginx
     volumes_from:
       - towan
     depends_on:
       - towan
+    volumes:
+      - "/usr/default.conf:/etc/nginx/conf.d/default.conf:ro"
     labels:
       - "traefik.enable=true"
       - "traefik.backend=nginx"
       - "traefik.frontend.rule=Host:lola.ninja"
-      - "traefik.protocol=http"
-      - "traefik.frontend.entryPoints=http"
+      #- "traefik.frontend.passHostHeader=true"
       - "traefik.port=80"
       - "traefik.docker.network=reverseproxy_default"
+    networks:
+      - "reverseproxy_default"
+
+  whoami:
+    image: emilevauge/whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=whoami"
+      - "traefik.frontend.rule=Host:lola.ninja"
+      - "traefik.frontend.rule=PathPrefix:/whoami/"
+      - "traefik.docker.network=reverseproxy_default"
+    networks:
+      - "reverseproxy_default"
+
+networks:
+  reverseproxy_default:
+    external:
+      name: reverseproxy_default
