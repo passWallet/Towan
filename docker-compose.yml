@@ -3,6 +3,8 @@ version: "2"
 services:
   postgres:
     image: postgres
+    networks:
+      - "towan"
 
   towan:
     restart: always
@@ -18,6 +20,8 @@ services:
       - PRODUCTION=True
     labels:
       - "traefik.enable=false"
+    networks:
+      - "towan"
     #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
 
   nginx:
@@ -36,8 +40,11 @@ services:
       #- "traefik.frontend.passHostHeader=true"
       - "traefik.port=80"
       - "traefik.docker.network=reverseproxy_default"
+    links:
+      - towan
     networks:
       - "reverseproxy_default"
+      - "towan"
 
   whoami:
     image: emilevauge/whoami
@@ -51,6 +58,8 @@ services:
       - "reverseproxy_default"
 
 networks:
+  towan:
+    driver: bridge
   reverseproxy_default:
     external:
       name: reverseproxy_default
