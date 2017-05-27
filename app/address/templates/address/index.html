@@ -22,7 +22,7 @@
   <script type="text/javascript">
     // Note that the path doesn't matter for routing; any WebSocket
     // connection gets bumped over to WebSocket consumers
-    socket = new WebSocket('ws://' + 'localhost:8000' + '/{{ address }}/')
+    socket = new WebSocket('ws://' + window.location.host + '/{{ address }}/')
 
     socket.onmessage = function(e) {
       if (e.data === 'payment_received') {
