@@ -1,0 +1,46 @@
+version: "2"
+
+services:
+  postgres:
+    image: postgres
+    networks:
+      - "towan"
+
+  towan:
+    restart: always
+    build: ../../app
+    depends_on:
+      - postgres
+    volumes:
+      - /usr/src/app
+    labels:
+      - "traefik.enable=false"
+    networks:
+      - "towan"
+    #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
+
+  nginx:
+    restart: always
+    image: nginx
+    volumes_from:
+      - towan
+    depends_on:
+      - towan
+    volumes:
+      - "/usr/nginx/development/default.conf:/etc/nginx/conf.d/default.conf:ro"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=nginx"
+      - "traefik.frontend.rule=Host:dev.lola.ninja"
+      - "traefik.port=80"
+      - "traefik.docker.network=reverseproxy_default"
+    networks:
+      - "reverseproxy_default"
+      - "towan"
+
+networks:
+  towan:
+    driver: bridge
+  reverseproxy_default:
+    external:
+      name: reverseproxy_default
