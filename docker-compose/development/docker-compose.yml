@@ -19,7 +19,7 @@ services:
       - "towan"
     #command: /usr/local/bin/gunicorn towan.wsgi:application -w 2 -b :8000 --reload
 
-  nginx:
+  nginx-dev:
     restart: always
     image: nginx
     volumes_from:
@@ -30,7 +30,7 @@ services:
       - "/usr/nginx/development/default.conf:/etc/nginx/conf.d/default.conf:ro"
     labels:
       - "traefik.enable=true"
-      - "traefik.backend=nginx"
+      - "traefik.backend=nginx-dev"
       - "traefik.frontend.rule=Host:dev.lola.ninja"
       - "traefik.port=80"
       - "traefik.docker.network=reverseproxy_default"

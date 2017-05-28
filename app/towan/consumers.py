@@ -10,7 +10,7 @@ def ws_connect(message):
         return
     address = query['address'][0]
     message.channel_session['address'] = address
-    message.reply_channel.send({"accept": true})
+    message.reply_channel.send({"accept": True})
     # Add connection to address group (should have only one connection)
     Group(address).add(message.reply_channel)
 
