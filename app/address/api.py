@@ -43,6 +43,7 @@ class AddressResource(ActionResourceMixin, ModelResource):
         queryset.save()
         blocktrailAPI.unsubscribe_address_event(queryset.address)
         Group(queryset.address).send({'text': 'payment_received'})
+        Group('client').send({'text': 'payment_received'})
         return self.create_response(request, request.body)
 
 

@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env('DB_NAME','postgres'),
         'USER': env('DB_USER','postgres'),
-        'PASSWORD': env('DB_PASSWORD','deadbeef'),
+        'PASSWORD': env('DB_PASSWORD','postgres'),
         'HOST': env('DB_HOST','localhost'),
         'PORT': 5432,
 
@@ -122,6 +122,6 @@ TASTYPIE_DEFAULT_FORMATS = ['json']
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgiref.inmemory.ChannelLayer",
-        "ROUTING": "towan.routing.channel_routing",
+        "ROUTING": "towan.routing.routing",
     },
 }

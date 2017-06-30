@@ -44,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Postgres container
     d.run "postgres",
       image: "postgres",
-      args: "-p 5432:5432 --volumes-from data -e POSTGRES_PASSWORD=deadbeef"
+      args: "-p 5432:5432 --volumes-from data"
   end
 
   # Install Django and load all the requirements

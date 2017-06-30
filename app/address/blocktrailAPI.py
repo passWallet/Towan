@@ -9,7 +9,7 @@ NETWORK = env('NETWORK','BTC')
 TESTNET = env('TESTNET', True)
 
 #Blocktrail webhook
-IDENTIFIER = "towan"
+IDENTIFIER = env('IDENTIFIER', 'localhost')
 CONFIRMATIONS = 0
 
 client = blocktrail.APIClient(api_key=settings.MY_APIKEY, api_secret=settings.MY_APISECRET, network=NETWORK, testnet=TESTNET)

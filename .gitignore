@@ -5,3 +5,5 @@ api_key.txt
 production.env
 development.env
 venv/
+TODO.md
+local.env

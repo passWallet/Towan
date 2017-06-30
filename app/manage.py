@@ -8,6 +8,8 @@ if __name__ == "__main__":
     #dotenv.read_dotenv()
     if os.getenv('PRODUCTION'):
         dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), './production.env'))
+    elif os.getenv('LOCALHOST'):
+        dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), './local.env'))
     else:
         dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), './development.env'))
 
