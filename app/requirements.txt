@@ -6,7 +6,7 @@ apt-xapian-index==0.45
 argparse==1.2.1
 asgiref==1.1.1
 attrs==16.3.0
-autobahn==0.18.2
+autobahn==20.12.3
 base58==0.2.2
 bitmerchant==0.1.8
 blocktrail-sdk==1.0.6
