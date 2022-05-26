@@ -1,6 +1,6 @@
 Automat==0.5.0
 Django==1.9.3
-Twisted==17.1.0
+Twisted==22.4.0
 appdirs==1.4.3
 apt-xapian-index==0.45
 argparse==1.2.1
