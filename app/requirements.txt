@@ -23,7 +23,7 @@ django-tastypie==0.13.3
 django-tastypie-crust==0.2
 ecdsa==0.13
 future==0.15.2
-html5lib==0.999
+html5lib==0.99999999
 httpsig==1.1.2
 incremental==16.10.1
 packaging==16.8
