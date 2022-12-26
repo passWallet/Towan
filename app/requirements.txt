@@ -39,6 +39,6 @@ six==1.10.0
 ssh-import-id==3.21
 txaio==2.7.0
 urllib3==1.7.1
-wheel==0.24.0
+wheel==0.38.1
 wsgiref==0.1.2
 zope.interface==4.3.3
